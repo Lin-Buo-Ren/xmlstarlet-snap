@@ -60,7 +60,7 @@ version: determined-by-version-script
 version-script: ./snap/local/build-utilities/set-snap-version.bash
 #version-script: git -C parts/my-app-part/src describe --always --dirty --tags
 
-confinement: devmode
+confinement: strict
 grade: devel
 
 # Refer the following documentation for asserting interface plugs and slots in a security confined snap:
