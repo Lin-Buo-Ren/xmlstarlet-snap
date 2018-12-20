@@ -86,6 +86,12 @@ apps:
       "${SNAP}"/bin/xmlstarlet-launch
       xmlstarlet
 
+  xml:
+    command: >
+      bin/locales-launch
+      "${SNAP}"/bin/xmlstarlet-launch
+      xml
+
 parts:
   # Utility programs to help with package building
   #build-utilities:
@@ -131,9 +137,33 @@ parts:
   parts-meta-info:
 
   xmlstarlet:
-    source: snap/local/empty
-    #source-type:
-    #source-tag:
-    #source-depth:
+    source: git://git.code.sf.net/p/xmlstar/code
+    source-depth: 100
 
-    plugin: nil
+    plugin: autotools
+    build-packages:
+    # PDF documentation generation
+    #- fop
+
+    # Postscript documentation generation
+    #- ghostscript
+
+    - libxslt1-dev
+    - xsltproc
+    stage-packages:
+    - libxml2
+    - libxslt1.1
+    override-build: |
+      set \
+        -o errexit
+
+      autoreconf -sif
+      snapcraftctl build
+
+      # Create compat links
+      ln \
+        --force \
+        --symbolic \
+        --verbose \
+        xml \
+        ../install/bin/xmlstarlet
