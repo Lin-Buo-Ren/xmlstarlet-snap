@@ -18,8 +18,7 @@ Published for <img src="http://anything.codes/slack-emoji-for-techies/emoji/tux.
 
 ### In Terminal
     # Install the snap package #
-    sudo snap install --channel=beta xmlstarlet
-    #sudo snap install xmlstarlet
+    sudo snap install xmlstarlet
     
     # Connect the snap to optional security confinement interfaces #
     ## For accessing files under `/mnt` or `/media` ##
