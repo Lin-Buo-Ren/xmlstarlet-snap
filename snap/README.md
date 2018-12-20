@@ -1,14 +1,14 @@
-# Unofficial Snap Packaging for [Project]
+# Unofficial Snap Packaging for XMLStarlet Command Line XML Toolkit
 <!--
 	Use the Staticaly service for easy access to in-repo pictures:
 	https://www.staticaly.com/
 -->
-![(Placeholder) Icon of [Project]](https://cdn.staticaly.com/gh/Lin-Buo-Ren/snapcrafters-template-plus/bea3bc56/snap/gui/my-awesome-app.png "(Placeholder) Icon of [Project]")
+![Logo of XMLStarlet Command Line XML Toolkit](gui/xmlstarlet.adapted.png "Logo of XMLStarlet Command Line XML Toolkit")
 
-**This is the unofficial snap for [Project]**, *"Single-line elevator pitch for your amazing snap"*. It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
+**This is the unofficial snap for XMLStarlet Command Line XML Toolkit**, *"A set of command line utilities (tools) which can be used to transform, query, validate, and edit XML documents"*. It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
 
 <!-- Uncomment and modify this when you are provided a build status badge
-[![Build Status Badge of the `my-awesome-app` Snap](https://build.snapcraft.io/badge/_repo_owner_id_/_repo_name_id_.svg "Build Status of the `my-awesome-app` snap")](https://build.snapcraft.io/user/_repo_owner_id_/_repo_name_id_)
+[![Build Status Badge of the `xmlstarlet` Snap](https://build.snapcraft.io/badge/Lin-Buo-Ren/xmlstarlet-snap.svg "Build Status of the `xmlstarlet` snap")](https://build.snapcraft.io/user/Lin-Buo-Ren/xmlstarlet-snap)
 -->
 
 <!-- Uncomment and modify this when you have a screenshot
@@ -23,20 +23,20 @@ Published for <img src="http://anything.codes/slack-emoji-for-techies/emoji/tux.
 
 ### In Terminal
     # Install Snap #
-    sudo snap install --channel=edge --devmode my-awesome-app
-    #sudo snap install --channel=beta my-awesome-app
-    #sudo snap install my-awesome-app
+    sudo snap install --channel=edge --devmode xmlstarlet
+    #sudo snap install --channel=beta xmlstarlet
+    #sudo snap install xmlstarlet
     
     # Connect the Snap to Required Interfaces #
     ## _plug_name_: Reasoning of connecting _plug_name_ ##
-    sudo snap connect my-awesome-app:_plug_name_
+    sudo snap connect xmlstarlet:_plug_name_
     
     # Connect the Snap to Optional Interfaces #
     ## _plug_name_: Reasoning of connecting _plug_name_ ##
-    sudo snap connect my-awesome-app:_plug_name_
+    sudo snap connect xmlstarlet:_plug_name_
 
 ### The Graphical Way
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/my-awesome-app)
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/xmlstarlet)
 -->
 
 <!-- Uncomment when you have test results
@@ -44,13 +44,13 @@ Published for <img src="http://anything.codes/slack-emoji-for-techies/emoji/tux.
 * [A list of functionallities that are verified working]
 
 ## What is NOT Working...yet 
-Check out the [issue tracker](https://github.com/_repo_owner_id_/_repo_name_id_/issues) for known issues.
+Check out the [issue tracker](https://github.com/Lin-Buo-Ren/xmlstarlet-snap/issues) for known issues.
 -->
 
 <!-- Uncomment when you have initialized the URLs
 ## Support
 * Report issues regarding using this snap to the issue tracker:  
-  <https://github.com/_repo_owner_id_/_repo_name_id_/issues>
+  <https://github.com/Lin-Buo-Ren/xmlstarlet-snap/issues>
 * You may also post on the Snapcraft Forum, under the `snap` topic category:  
   <https://forum.snapcraft.io/c/snap>
 -->

@@ -11,7 +11,12 @@ NOTE: The Snap Store requires that the snap's representing icon be a image of SV
 ## Desktop Entries for Applications Provided by the Snap
 If the packaging target is a graphical user interface application but it doesn't implement a freedesktop.org desktop entry, you may implement one here with the `.desktop` filename extension(The filename isn't significant, but it's `Exec` key must be a valid snap launch command(e.g. `_snap_name_._app_name_` or `_snap_name_` when `_snap_name_` is identical to the `_app_name_`) and it's `Icon` key must set to `$SNAP/some/icon/under/the/prime/directory.{png,svg}` in order to make the menu entry's icon work).
 
+## Notes
+
+The xmlstarlet.4x.png is generated via [waifu2x](http://waifu2x.udp.jp/), which is technically not the original logo.
+
 ## References
+
 * [Commands, daemons & assets - Snaps are universal Linux packages](https://docs.snapcraft.io/build-snaps/metadata#fixed-assets)
 * [Getting ready for stable - doc - snapcraft.io](https://forum.snapcraft.io/t/getting-ready-for-stable/4305)
 * [DN3 - Assets in setup/gui should now be placed in snap/gui - Snaps are universal Linux packages](https://docs.snapcraft.io/deprecation-notices/dn3)

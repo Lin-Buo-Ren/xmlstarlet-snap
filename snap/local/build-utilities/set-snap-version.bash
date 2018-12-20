@@ -15,7 +15,7 @@ init(){
 
 	upstream_version="$(
 		git \
-			-C parts/my-app-part/src \
+			-C parts/xmlstarlet/src \
 			describe \
 			--always \
 			--dirty=-d \
