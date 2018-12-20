@@ -11,9 +11,7 @@
 [![Build Status Badge of the `xmlstarlet` Snap](https://build.snapcraft.io/badge/Lin-Buo-Ren/xmlstarlet-snap.svg "Build Status of the `xmlstarlet` snap")](https://build.snapcraft.io/user/Lin-Buo-Ren/xmlstarlet-snap)
 -->
 
-<!-- Uncomment and modify this when you have a screenshot
-![Screenshot of the Snapped Application](local/screenshots/screenshot.png "Screenshot of the Snapped Application")
--->
+![Screenshot of the Snapped Application](local/screenshots/xml%20--version.png "Screenshot of the Snapped Application")
 
 Published for <img src="http://anything.codes/slack-emoji-for-techies/emoji/tux.png" align="top" width="24" /> with 💝 by Snapcrafters
 
