@@ -24,6 +24,17 @@ Published for <img src="http://anything.codes/slack-emoji-for-techies/emoji/tux.
     # Connect the snap to optional security confinement interfaces #
     ## For accessing files under `/mnt` or `/media` ##
     sudo snap connect xmlstarlet:removable-media
+    
+    # Launch the application #
+    xmlstarlet --help
+    
+    ## If you have another existing XMLStarlet installation ##
+    snap run xmlstarlet --help
+    
+    xmlstarlet.xml --help
+    
+    ## After running `sudo snap alias xmlstarlet.xml xml` to create a command alias ##
+    xml --help
 
 ### The Graphical Way
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/xmlstarlet)
