@@ -143,10 +143,10 @@ parts:
     plugin: autotools
     build-packages:
     # PDF documentation generation
-    #- fop
+    - fop
 
     # Postscript documentation generation
-    #- ghostscript
+    - ghostscript
 
     - libxslt1-dev
     - xsltproc
