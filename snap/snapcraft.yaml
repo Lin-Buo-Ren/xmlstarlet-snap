@@ -119,6 +119,9 @@ parts:
     source: git://git.code.sf.net/p/xmlstar/code
     source-depth: 100
 
+    # For building releases for stable channel
+    source-tag: 1.6.1
+
     plugin: autotools
     build-packages:
     # PDF documentation generation
