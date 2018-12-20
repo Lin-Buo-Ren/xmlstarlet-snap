@@ -120,7 +120,7 @@ parts:
     source-depth: 100
 
     # For building releases for stable channel
-    source-tag: 1.6.1
+    #source-tag: 1.6.1
 
     plugin: autotools
     build-packages:
