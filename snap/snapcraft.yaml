@@ -14,6 +14,7 @@
 # For support refer to the snapcraft section in the Snapcraft Forum:
 # https://forum.snapcraft.io/c/snapcraft
 name: xmlstarlet
+title: XMLStarlet command line XML toolkit
 summary: Command line utilities to transform, query, validate, and edit XML files
 description: |
   XMLStarlet is a set of command line utilities (tools) which can be used to transform, query, validate, and edit XML documents and files using simple set of shell commands in similar way it is done for plain text files using UNIX grep, sed, awk, diff, patch, join, etc commands.
@@ -43,10 +44,12 @@ description: |
       https://github.com/Lin-Buo-Ren/xmlstarlet-snap/issues
 
 icon: snap/gui/xmlstarlet.adapted.png
+license: MIT
 
-version: determined-by-version-script
-version-script: ./snap/local/build-utilities/set-snap-version.bash
-
+adopt-info: xmlstarlet
+assumes:
+- command-chain
+base: core
 confinement: strict
 grade: stable
 
@@ -60,27 +63,20 @@ plugs:
 
 apps:
   xmlstarlet:
-    command: >
-      bin/locales-launch
-      "${SNAP}"/bin/xmlstarlet-launch
-      xmlstarlet
+    adapter: full
+    command: bin/xmlstarlet
+    command-chain:
+    - bin/locales-launch
+    - bin/xmlstarlet-launch
 
   xml:
-    command: >
-      bin/locales-launch
-      "${SNAP}"/bin/xmlstarlet-launch
-      xml
+    adapter: full
+    command: bin/xml
+    command-chain:
+    - bin/locales-launch
+    - bin/xmlstarlet-launch
 
 parts:
-  # Utility programs to help with package building
-  #build-utilities:
-    #source: snap/local/build-utilities
-    #plugin: dump
-    #organize:
-      #'*': assets/build-utilities/
-    #prime:
-    #- -*
-
   # Launcher programs to fix problems at runtime
   launchers:
     source: snap/local/launchers
@@ -90,37 +86,44 @@ parts:
     stage:
     - -bin/README.*
 
-  # Program patches to solve issues that can't be solved by tweaking in runtime
-  #patches:
-    #source: snap/local/patches
-    #plugin: dump
-    #organize:
-      #'*': assets/patches/
-    #prime:
-    #- -*
-
-  # Helper programs that can be called at snap runtime
-  #helpers:
-    #source: snap/local/helpers
-    #plugin: dump
-    #organize:
-      #'*': bin/
-    #stage:
-    #- -bin/README.*
-
-  # Remote part for fixing the glibc locales(and gnu gettext I18N support)
-  # This part is only required for non GUI apps that don't uses the desktop-launch launchers
+  # Stage snap for fixing the Glibc locales
+  # https://forum.snapcraft.io/t/the-locales-launch-stage-snap/10296
   locales-launch:
+    plugin: nil
+    stage-snaps:
+    - locales-launch
+    stage-packages:
+    # For localedef(1)
+    - libc-bin
 
-  # Remote part for recording the exact revision for each part during building
-  parts-meta-info:
+    # For locale data used by localedef(1)
+    - locales
+
+  # Check out the tagged release revision if it isn't promoted to the stable channel
+  # https://forum.snapcraft.io/t/selective-checkout-check-out-the-tagged-release-revision-if-it-isnt-promoted-to-the-stable-channel/10617
+  selective-checkout:
+    plugin: nil
+    build-packages:
+    - git
+    stage-snaps:
+    - selective-checkout
+    prime:
+    - -*
 
   xmlstarlet:
+    after:
+    - selective-checkout
     source: git://git.code.sf.net/p/xmlstar/code
     source-depth: 100
 
     # For building releases for stable channel
     #source-tag: 1.6.1
+
+    override-pull: |
+      snapcraftctl pull
+
+      "$SNAPCRAFT_STAGE"/scriptlets/selective-checkout \
+        --append-packaging-revision
 
     plugin: autotools
     build-packages:
