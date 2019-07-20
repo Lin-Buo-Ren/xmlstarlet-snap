@@ -102,9 +102,9 @@ parts:
   # Workaround for "Permission denied: /etc/xml/catalog"
   # https://github.com/Lin-Buo-Ren/xmlstarlet-snap/issues/1
   xml-catalog:
+    after:
+    - libxml2
     plugin: nil
-    build-packages:
-    - libxml2-utils
     override-build: |
       set -o nounset
 
@@ -126,8 +126,24 @@ parts:
     prime:
     - -*
 
+  libxml2:
+    plugin: nil
+    stage-snaps:
+    - libxml2
+    prime:
+    - lib/**.so*
+
+  libxslt:
+    plugin: nil
+    stage-snaps:
+    - libxslt
+    prime:
+    - lib/**.so*
+
   xmlstarlet:
     after:
+    - libxml2
+    - libxslt
     - selective-checkout
     source: git://git.code.sf.net/p/xmlstar/code
     source-depth: 100
@@ -149,11 +165,6 @@ parts:
     # Postscript documentation generation
     - ghostscript
 
-    - libxslt1-dev
-    - xsltproc
-    stage-packages:
-    - libxml2
-    - libxslt1.1
     override-build: |
       set \
         -o errexit
