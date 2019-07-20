@@ -38,10 +38,14 @@ description: |
   * Print directory as XML document
   * Convert XML into PYX format (based on ESIS - ISO 8879), and vice versa
 
+  **Snap-specific information**
+
+  This snap ships the latest upstream release of the XML processing libraries at the moment, you may verify their versions by running the `xmlstarlet --version` command in a terminal.
+
   This is NOT an official snap distribution of XMLStarlet.  Refer the issue tracker for any problems regarding the use of this snap:
 
-      Issues · Lin-Buo-Ren/xmlstarlet-snap
-      https://github.com/Lin-Buo-Ren/xmlstarlet-snap/issues
+  Issues · Lin-Buo-Ren/xmlstarlet-snap  
+  https://github.com/Lin-Buo-Ren/xmlstarlet-snap/issues
 
 icon: snap/gui/xmlstarlet.adapted.png
 license: MIT
