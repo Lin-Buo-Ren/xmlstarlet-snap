@@ -99,6 +99,22 @@ parts:
     # For locale data used by localedef(1)
     - locales
 
+  # Workaround for "Permission denied: /etc/xml/catalog"
+  # https://github.com/Lin-Buo-Ren/xmlstarlet-snap/issues/1
+  xml-catalog:
+    plugin: nil
+    build-packages:
+    - libxml2-utils
+    override-build: |
+      set -o nounset
+
+      install \
+        --directory \
+        "${SNAPCRAFT_PART_INSTALL}"/etc/xml
+      xmlcatalog \
+        --create \
+        >"${SNAPCRAFT_PART_INSTALL}"/etc/xml/catalog
+
   # Check out the tagged release revision if it isn't promoted to the stable channel
   # https://forum.snapcraft.io/t/selective-checkout-check-out-the-tagged-release-revision-if-it-isnt-promoted-to-the-stable-channel/10617
   selective-checkout:
@@ -152,3 +168,7 @@ parts:
         --verbose \
         xml \
         ../install/bin/xmlstarlet
+
+layout:
+  /etc/xml/catalog:
+    bind-file: $SNAP/etc/xml/catalog
